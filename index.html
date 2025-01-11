@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: "Crimson Text", serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        header {
+            background-color: #f4f4f4;
+            padding: 1em;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 0px;
+            padding: 0;
+        }
+
+        .slider img {
+            border-radius: 5px;
+            max-height: 350px;
+            margin-left: 10px;
+        }
+
+        footer {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .list-group-item {
+            border: 0px;
+        }
+
+        .fas { color:black; }
+
+        .show-about {
+            cursor: pointer;
+            text-decoration: none;
+            color:black;
+        }
+
+        .show-about:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="row d-none d-md-flex" id="desktop-header">
+            <div class = "col-2 text-center">
+                <a href="#" class="show-search">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+
+            <div class="col-8">
+                <h1 class="header-title">Remember What It Is That You Love</h1>
+                <p>A tribute to Mike Woodhouse (1965 - 2022)</p>
+            </div>
+            <div class="col-2">
+                <a class="show-about" class="btn btn-link link">About</a>
+            </div>
+        </div>
+
+        <!-- Now a search and about that are visible below md -->
+        <div class="d-md-none text-center">
+            <h1 class="header-title">Remember What It Is That You Love</h1>
+            <p>A tribute to Mike Woodhouse (1965 - 2022)</p>
+            <div class="row">
+                <div class="col-6 text-left">
+                    <a href="#" class="show-search">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a class="show-about" class="btn btn-link">About</a>
+                </div>
+            </div>
+    </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" id="search-input" class="form-control"
+                            placeholder="Enter a band, a year... whatever!">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="search-button">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div id="gig-list"> </div>
+        </div>
+
+        <!-- new modal called about -->
+        <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>About Mike</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-left">
+                        <p>During Mike Woodhouse&#8217;s short life he attended 640 gigs. He meticulously recorded all
+                            of them
+                            in a
+                            spreadsheet. </p>
+
+                        <p>This website is an online version of the spreadsheet, created by one of his many friends <a
+                                href="../cdn-cgi/l/email-protection.html#dfb8bab0adb8baf1b0a9baadabb0b19fbdabb6b1abbaadb1baabf1bcb0b2">georgethe23rd</a>.
+                        </p>
+
+                        <p>The website is called &#8220;Remember What It Is That You Love&#8221;, which is a song by one
+                            of
+                            Mike&#8217;s
+                            favourite bands, The Family Cat (he saw them 33 times). It was played at his funeral.</p>
+                        <div class="d-flex justify-content-center">
+                            <iframe title="The Family Cat - Remember What It Is That You Love" class="w-100"
+                                style="max-width: 800px; height: 450px;"
+                                src="https://www.youtube.com/embed/n1f-8UqzFIE?feature=oembed" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p>Some brief statistics:</p>
+
+                        <ul>
+                            <li>Mike&#8217;s first gig was AC/DC at Manchester Apollo, 3 October 1982</li>
+                            <li>His 100th was That Petrol Emotion at Brixton The Fridge, 17 October 1990</li>
+                            <li>His 500th was Vaselines at Nottingham Rescue Rooms, 20 September 2010</li>
+                            <li>His final gig was seeing House of Love and October Drift at the Rockaway Beach Festival,
+                                Bognor
+                                Regis
+                                Butlins, 9 January 2022</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        
+        <div class="slider mb-4">
+            <img src="./images/e9e92fad-6824-4f73-84ee-1c8f6dbd4a0a-1.jpg">
+            <img src="./images/IMG_9382-1024x768.jpg">
+            <img src="./images/248200200_10223737699604014_895366931077521354_n.jpg">
+            <img src="./images/467498228_10235059568288534_7986533627815571453_n.jpg">
+            <img src="./images/268775408_10227318284241271_2912262082770365607_n-1024x1024.jpg">
+            <img src="./images/f3984a5f-0da0-4da6-8f49-93cd455da1c2.jpg">
+            <img src="./images/e9e92fad-6824-4f73-84ee-1c8f6dbd4a0a-1.jpg">
+            <img src="./images/IMG_9382-1024x768.jpg">
+            <img src="./images/248200200_10223737699604014_895366931077521354_n.jpg">
+            <img src="./images/467498228_10235059568288534_7986533627815571453_n.jpg">
+            <img src="./images/268775408_10227318284241271_2912262082770365607_n-1024x1024.jpg">
+            <img src="./images/f3984a5f-0da0-4da6-8f49-93cd455da1c2.jpg">
+        </div>
+        <p>
+        &copy; 2025 Remember What It Is That You Love</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        // Hide the scrollbar on the slider
+        document.querySelector('.slider').style.overflow = 'hidden';
+
+        // Automatically scroll the slider and move the first image to the end
+        function autoScrollSlider() {
+            const slider = document.querySelector('.slider');
+            const slideTimer = setInterval(() => {
+                slider.scrollLeft += 1;
+
+                // Check if the first image is out of view
+                if (slider.scrollLeft >= slider.children[0].clientWidth + 10) {
+                    // Move the first image to the end
+
+                    slider.appendChild(slider.children[0]);
+
+                    slider.scrollLeft = 0;
+                }
+            }, 10); // Adjust the speed of scrolling
+        }
+
+        // Start the auto-scrolling
+        autoScrollSlider();
+
+        $('.show-search').click(function () {
+            $('#searchInput').val('');
+            $('#searchModal').modal('show');
+        });
+
+        // Focus the search input when the modal is fully shown
+        $('#searchModal').on('shown.bs.modal', function () {
+            $('#search-input').focus();
+        });
+
+        // Show the about modal when the about link is clicked
+        $('.show-about').click(function () {
+            $('#aboutModal').modal('show');
+        });
+
+    </script>
+    <script src="gigs.js?ver=1.0"></script>
+</body>
+
+</html>
