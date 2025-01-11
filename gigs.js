@@ -91,7 +91,7 @@ function displayGigs(gigs) {
         });
     } else {
         const noGigsMessage = document.createElement('p');
-        noGigsMessage.textContent = "No gigs attended today.";
+        noGigsMessage.textContent = "No gigs attended on this day.";
         dayDiv.appendChild(noGigsMessage);
     }
 
